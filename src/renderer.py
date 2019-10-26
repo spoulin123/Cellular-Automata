@@ -91,7 +91,7 @@ class Renderer:
         yStart = y * BLOCK_FULL_WIDTH
 
         # Draw them
-        self.pygame.draw(self.window, color, (xStart, yStart, BLOCK_WIDTH, BLOCK_WIDTH))
+        self.pygame.draw.rect(self.window, color, (xStart, yStart, BLOCK_WIDTH, BLOCK_WIDTH))
 
     #/**
     # Display a world
