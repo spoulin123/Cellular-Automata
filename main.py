@@ -21,6 +21,7 @@ input()
 while True:
     i += 1
     populatedWorld.update_grid()
-    console.clear()
+    # Clear screen
+    print("\033[H\033[J")
     populatedWorld.display(0, 50, 0, 50, i)
 # time.sleep(.1)
