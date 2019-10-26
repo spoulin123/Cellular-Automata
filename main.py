@@ -16,13 +16,14 @@ populatedWorld.spawn_points(ConwayPatterns.r_pentomino((10, 10)), 1)
 print(populatedWorld.active_points)
 
 frameDelay = .1
-i = 0
+
+frameCount = 0
 populatedWorld.display(0, 50, 0, 50, i)
 
 input()
 
 while True:
-    i += 1
+    frameCount += 1
     populatedWorld.update_grid()
     # Clear screen
     print("\033[H\033[J")
