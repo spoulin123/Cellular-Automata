@@ -69,4 +69,20 @@ class Renderer:
                 # Draw a line
                 self.pygame.draw.rect(self.window, GRID_LINE_COLOR, position)
 
+    #/**
+    # Draw a block
+    #
+    # @param x (int) X Position of the block
+    # @param y (int) Y Position of the block
+    # @param color (int, int, int) Color of the block
+    #*/
+    def drawBlock(self, x, y, color):
+
+        # Calculate positions
+        xStart = x * (BLOCK_WIDTH + GRID_LINE_WIDTH)
+        yStart = y * (BLOCK_WIDTH + GRID_LINE_WIDTH)
+
+        # Draw them
+        self.pygame.draw(self.window, color, (xStart, yStart, BLOCK_WIDTH, BLOCK_WIDTH))
+
 
