@@ -4,6 +4,10 @@ window_title = "Cellular Automata"
 window_width = 1000
 window_height = 1000
 # Grid
+grid_start_x = 50
+grid_start_y = 50
+grid_length_x = 900
+grid_length_y = 900
 grid_line_color = (95, 95, 95)  # 5f5f5f
 grid_line_length = 1
 block_width = 9
