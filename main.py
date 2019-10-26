@@ -17,15 +17,19 @@ print(populatedWorld.active_points)
 
 frameDelay = .1
 
-frameCount = 0
-populatedWorld.display(0, 50, 0, 50, i)
+# Runtime Variables
+frameCount = 1
 
 input()
 
 while True:
-    frameCount += 1
-    populatedWorld.update_grid()
     # Clear screen
     print("\033[H\033[J")
-    populatedWorld.display(0, 50, 0, 50, i)
+    # Display the current grid
+    populatedWorld.display(0, 50, 0, 50, frameCount)
+    # Increment frame count
+    frameCount += 1
+    # Update grid
+    populatedWorld.update_grid()
+    # Wait until the next update
     time.sleep(frameDelay)
