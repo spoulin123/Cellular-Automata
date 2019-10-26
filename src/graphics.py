@@ -10,6 +10,9 @@ window = pygame.display.set_mode((1000, 1000))
 # Create renderer
 renderer = Renderer(pygame, window)
 
+# Render initial stuff
+renderer.draw_lines()
+
 # Frame operations
 running = True
 while running:
