@@ -32,7 +32,7 @@ class Renderer:
     def draw_grid(self):
 
         # Loop through all x values in the grid
-        for x in range(0, self.window.get_width()):
+        for x in range(grid_start_x, grid_start_x + grid_length_x):
 
             # Every gap between blocks
             if x % (block_width + grid_line_length) == 0:
@@ -41,7 +41,7 @@ class Renderer:
                 self.pygame.draw.rect(self.window, grid_line_color, (x, 0, grid_line_length, self.window.get_height()))
 
         # Loop through all y values in the grid
-        for y in range(0, self.window.get_height()):
+        for y in range(grid_start_y, grid_start_y + grid_length_y):
 
             # Every gap between blocks
             if y % (block_width + grid_line_length) == 0:
