@@ -107,4 +107,4 @@ class Renderer:
         # Loop through values
         for y in range(0, BLOCKS_Y):
             for x in range(0, BLOCKS_X):
-                self.drawBlock(x, y, grid[x][y] == '#')
+                self.drawBlock(x, y, COLOR_DEAD if grid[x][y] == 0 else COLOR_ALIVE)
