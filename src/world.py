@@ -76,6 +76,9 @@ class World:
                     if active_point not in self.active_points:
                         self.active_points.append(active_point)
 
+    def get_grid(self):
+        return self.grid
+
     def display(self, x1, x2, y1, y2, iter):
         out = ""
         # graphics = {0: " ", 1: "#"}
