@@ -21,7 +21,7 @@ conway_rules = [Rule(1, [Condition(1, "LESS", 2)], 0),
 
 # Create world
 world = World("Test", 2000, 2000, 2, conway_rules, {0: " ", 1: "#"}, {})
-world.spawn_points(ConwayPatterns.r_pentomino((10, 10)), 1)
+world.spawn_points(ConwayPatterns.r_pentomino((40, 40)), 1)
 print(world.active_points)
 
 # Frame operations
