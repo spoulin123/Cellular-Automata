@@ -25,7 +25,7 @@ class Renderer:
         self.window = pygame.display.set_mode((window_width, window_height))
 
     # Draw grid lines
-    def draw_lines(self):
+    def draw_grid(self):
 
         # Loop through all x values in the grid
         for x in range(0, self.window.get_width()):
