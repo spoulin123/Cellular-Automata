@@ -1,4 +1,8 @@
+# Renderer options
+grid_line_color = (200, 200, 200)
 
+
+# Renderer class
 class Renderer:
 
     # Class info
