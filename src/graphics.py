@@ -8,7 +8,7 @@ pygame.init()
 renderer = Renderer(pygame)
 
 # Render initial stuff
-renderer.draw_grid()
+renderer.drawGrid()
 
 # Frame operations
 running = True

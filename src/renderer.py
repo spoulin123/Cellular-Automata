@@ -1,18 +1,18 @@
 # Renderer options
 # Window
-window_title = "Cellular Automata"
-window_width = 1000
-window_height = 1000
+WINDOW_TITLE = "Cellular Automata"
+WINDOW_WIDTH = 1000
+WINDOW_HEIGHT = 1000
 # Grid
-grid_start_x = 50
-grid_start_y = 50
-grid_length_x = 900
-grid_length_y = 900
-grid_line_color = (95, 95, 95)  # 5f5f5f
-grid_line_width = 1
-border_line_color = (150, 150, 150)
-border_line_width = 2
-block_width = 9
+GRID_START_X = 50
+GRID_START_Y = 50
+GRID_LENGTH_X = 900
+GRID_LENGTH_Y = 900
+GRID_LINE_COLOR = (95, 95, 95)  # 5f5f5f
+GRID_LINE_WIDTH = 1
+BORDER_COLOR = (150, 150, 150)
+BORDER_WIDTH = 2
+BLOCK_WIDTH = 9
 
 
 # Renderer class
@@ -27,48 +27,46 @@ class Renderer:
         self.pygame = pygame
 
         # Initialize pygame
-        self.pygame.display.set_caption(window_title)
-        self.window = pygame.display.set_mode((window_width, window_height))
+        self.pygame.display.set_caption(WINDOW_TITLE)
+        self.window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
     # Draw grid lines
-    def draw_grid(self):
+    def drawGrid(self):
 
         # Calculate border line boxes
-        right_box = (grid_start_x - border_line_width, grid_start_y, border_line_width, grid_length_y)
-        left_box = (grid_start_x + grid_length_x, grid_start_y, border_line_width, grid_length_y)
-        top_box = (grid_start_x, grid_start_y - border_line_width, grid_length_x, border_line_width)
-        bottom_box = (grid_start_x, grid_start_y + grid_length_y, grid_length_x, border_line_width)
+        rightBox = (GRID_START_X - BORDER_WIDTH, GRID_START_Y, BORDER_WIDTH, GRID_LENGTH_Y)
+        leftBox = (GRID_START_X + GRID_LENGTH_X, GRID_START_Y, BORDER_WIDTH, GRID_LENGTH_Y)
+        topBox = (GRID_START_X, GRID_START_Y - BORDER_WIDTH, GRID_LENGTH_X, BORDER_WIDTH)
+        bottomBox = (GRID_START_X, GRID_START_Y + GRID_LENGTH_Y, GRID_LENGTH_X, BORDER_WIDTH)
 
         # Draw border lines
-        self.pygame.draw.rect(self.window, border_line_color, right_box)
-        self.pygame.draw.rect(self.window, border_line_color, left_box)
-        self.pygame.draw.rect(self.window, border_line_color, top_box)
-        self.pygame.draw.rect(self.window, border_line_color, bottom_box)
+        self.pygame.draw.rect(self.window, BORDER_COLOR, rightBox)
+        self.pygame.draw.rect(self.window, BORDER_COLOR, leftBox)
+        self.pygame.draw.rect(self.window, BORDER_COLOR, topBox)
+        self.pygame.draw.rect(self.window, BORDER_COLOR, bottomBox)
 
         # Loop through all x values in the grid
-        for x in range(grid_start_x, grid_start_x + grid_length_x):
+        for x in range(GRID_START_X, GRID_START_X + GRID_LENGTH_X):
 
             # Every gap between blocks
-            if x % (block_width + grid_line_width) == 0:
+            if x % (BLOCK_WIDTH + GRID_LINE_WIDTH) == 0:
 
                 # Calculate box position
-                position = (x + block_width, grid_start_y, grid_line_width, grid_length_x)
+                position = (x + BLOCK_WIDTH, GRID_START_Y, GRID_LINE_WIDTH, GRID_LENGTH_X)
 
                 # Draw a line
-                self.pygame.draw.rect(self.window, grid_line_color, position)
+                self.pygame.draw.rect(self.window, GRID_LINE_COLOR, position)
 
         # Loop through all y values in the grid
-        for y in range(grid_start_y, grid_start_y + grid_length_y):
+        for y in range(GRID_START_Y, GRID_START_Y + GRID_LENGTH_Y):
 
             # Every gap between blocks
-            if y % (block_width + grid_line_width) == 0:
+            if y % (BLOCK_WIDTH + GRID_LINE_WIDTH) == 0:
 
                 # Calculate box position
-                position = (grid_start_x, y + block_width, grid_length_y, grid_line_width)
+                position = (GRID_START_X, y + BLOCK_WIDTH, GRID_LENGTH_Y, GRID_LINE_WIDTH)
 
                 # Draw a line
-                self.pygame.draw.rect(self.window, grid_line_color, position)
-
-
+                self.pygame.draw.rect(self.window, GRID_LINE_COLOR, position)
 
 
