@@ -15,6 +15,10 @@ BORDER_WIDTH = 2
 BLOCK_WIDTH = 9
 
 
+# Computed Constants
+BLOCK_FULL_WIDTH = BLOCK_WIDTH + GRID_LINE_WIDTH
+
+
 # Renderer class
 class Renderer:
 
@@ -49,7 +53,7 @@ class Renderer:
         for x in range(GRID_START_X, GRID_START_X + GRID_LENGTH_X):
 
             # Every gap between blocks
-            if x % (BLOCK_WIDTH + GRID_LINE_WIDTH) == 0:
+            if x % BLOCK_FULL_WIDTH == 0:
 
                 # Calculate box position
                 position = (x + BLOCK_WIDTH, GRID_START_Y, GRID_LINE_WIDTH, GRID_LENGTH_X)
@@ -79,8 +83,8 @@ class Renderer:
     def drawBlock(self, x, y, color):
 
         # Calculate positions
-        xStart = x * (BLOCK_WIDTH + GRID_LINE_WIDTH)
-        yStart = y * (BLOCK_WIDTH + GRID_LINE_WIDTH)
+        xStart = x * BLOCK_FULL_WIDTH
+        yStart = y * BLOCK_FULL_WIDTH
 
         # Draw them
         self.pygame.draw(self.window, color, (xStart, yStart, BLOCK_WIDTH, BLOCK_WIDTH))
