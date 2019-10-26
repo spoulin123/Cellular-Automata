@@ -23,7 +23,7 @@ class Renderer:
         for x in range(0, self.window.get_width()):
 
             # Every gap between blocks
-            if x % block_width == 0:
+            if x % (block_width + grid_line_width) == 0:
                 print('x = ' + str(x))
 
                 # Draw a line
