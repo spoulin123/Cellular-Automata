@@ -35,6 +35,10 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+    # Update world
+    world.update_grid()
+    renderer.drawWorld(world)
+
     # Update display
     pygame.display.update()
 
