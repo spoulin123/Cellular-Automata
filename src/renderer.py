@@ -87,8 +87,8 @@ class Renderer:
     def drawBlock(self, x, y, color):
 
         # Calculate positions
-        xStart = x * BLOCK_FULL_WIDTH
-        yStart = y * BLOCK_FULL_WIDTH
+        xStart = GRID_START_X + x * BLOCK_FULL_WIDTH
+        yStart = GRID_START_Y + y * BLOCK_FULL_WIDTH
 
         # Draw them
         self.pygame.draw.rect(self.window, color, (xStart, yStart, BLOCK_WIDTH, BLOCK_WIDTH))
