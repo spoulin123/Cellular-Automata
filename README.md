@@ -14,4 +14,4 @@
 2. Enter virtual environment:
 <br>`source venv-dir/bin/activate`
 3. Start:
-<br>`python3 src/main.py`
+<br>`python3 src/graphics.py`
