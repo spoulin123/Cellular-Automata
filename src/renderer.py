@@ -1,4 +1,7 @@
 # Renderer options
+# Window
+window_title = "Cellular Automata"
+# Grid
 grid_line_color = (95, 95, 95)  # 5f5f5f
 grid_line_width = 1
 block_width = 9
@@ -15,6 +18,9 @@ class Renderer:
     def __init__(self, pygame, window):
         self.pygame = pygame
         self.window = window
+
+        # Initialize pygame
+        self.pygame.display.set_caption(window_title)
 
     # Draw grid lines
     def draw_lines(self):
