@@ -39,8 +39,11 @@ class Renderer:
             # Every gap between blocks
             if x % (block_width + grid_line_width) == 0:
 
+                # Calculate box position
+                position = (x + block_width, grid_start_y, grid_line_width, grid_length_x)
+
                 # Draw a line
-                self.pygame.draw.rect(self.window, grid_line_color, (x + block_width, grid_start_y, grid_line_width, grid_length_x))
+                self.pygame.draw.rect(self.window, grid_line_color, position)
 
         # Loop through all y values in the grid
         for y in range(grid_start_y, grid_start_y + grid_length_y):
@@ -48,8 +51,11 @@ class Renderer:
             # Every gap between blocks
             if y % (block_width + grid_line_width) == 0:
 
+                # Calculate box position
+                position = (grid_start_x, y + block_width, grid_length_y, grid_line_width)
+
                 # Draw a line
-                self.pygame.draw.rect(self.window, grid_line_color, (grid_start_x, y + block_width, grid_length_y, grid_line_width))
+                self.pygame.draw.rect(self.window, grid_line_color, position)
 
 
 
