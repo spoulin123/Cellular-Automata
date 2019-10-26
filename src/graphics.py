@@ -1,4 +1,5 @@
 import pygame
+from renderer import Renderer
 
 # Initialize pygame
 pygame.init()
@@ -6,7 +7,9 @@ pygame.init()
 # Create pygame window
 window = pygame.display.set_mode((1000, 1000))
 
-# Monitor events
+# Create renderer
+renderer = Renderer(pygame, window)
+
 # Frame operations
 running = True
 while running:
