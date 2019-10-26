@@ -33,9 +33,13 @@ class Renderer:
     # Draw grid lines
     def draw_grid(self):
 
+        # Calculate border line boxes
+        right_box = (grid_start_x - border_line_width, grid_start_y, border_line_width, grid_length_y)
+        left_box = (grid_start_x + grid_length_x, grid_start_y, border_line_width, grid_length_y)
+
         # Draw border lines
-        self.pygame.draw.rect(self.window, border_line_color,
-                              (grid_start_x - border_line_width, grid_start_y, border_line_width, grid_length_y))
+        self.pygame.draw.rect(self.window, border_line_color, right_box)
+        self.pygame.draw.rect(self.window, border_line_color, left_box)
 
         # Loop through all x values in the grid
         for x in range(grid_start_x, grid_start_x + grid_length_x):
