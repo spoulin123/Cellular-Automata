@@ -1,7 +1,7 @@
 # Renderer options
-grid_line_color = (200, 200, 200)
+grid_line_color = (95, 95, 95)  # 5f5f5f
 grid_line_width = 1
-block_width = 50
+block_width = 9
 
 
 # Renderer class
