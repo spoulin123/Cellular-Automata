@@ -5,7 +5,7 @@ window_width = 1000
 window_height = 1000
 # Grid
 grid_line_color = (95, 95, 95)  # 5f5f5f
-grid_line_width = 1
+grid_line_length = 1
 block_width = 9
 
 
@@ -31,19 +31,19 @@ class Renderer:
         for x in range(0, self.window.get_width()):
 
             # Every gap between blocks
-            if x % (block_width + grid_line_width) == 0:
+            if x % (block_width + grid_line_length) == 0:
 
                 # Draw a line
-                self.pygame.draw.rect(self.window, grid_line_color, (x, 0, grid_line_width, self.window.get_height()))
+                self.pygame.draw.rect(self.window, grid_line_color, (x, 0, grid_line_length, self.window.get_height()))
 
         # Loop through all y values in the grid
         for y in range(0, self.window.get_height()):
 
             # Every gap between blocks
-            if y % (block_width + grid_line_width) == 0:
+            if y % (block_width + grid_line_length) == 0:
 
                 # Draw a line
-                self.pygame.draw.rect(self.window, grid_line_color, (0, y, self.window.get_width(), grid_line_width))
+                self.pygame.draw.rect(self.window, grid_line_color, (0, y, self.window.get_width(), grid_line_length))
 
 
 
