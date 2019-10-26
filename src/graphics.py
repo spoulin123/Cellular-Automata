@@ -7,6 +7,7 @@ pygame.init()
 window = pygame.display.set_mode((1000, 1000))
 
 # Monitor events
+# Frame operations
 running = True
 while running:
     # Delay
@@ -16,6 +17,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    # Update display
+    pygame.display.update()
 
 # Quit
 pygame.quit()
