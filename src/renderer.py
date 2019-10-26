@@ -93,4 +93,18 @@ class Renderer:
         # Draw them
         self.pygame.draw(self.window, color, (xStart, yStart, BLOCK_WIDTH, BLOCK_WIDTH))
 
+    #/**
+    # Display a world
+    # TODO: Optimize this by rendering specific blocks on change instead of updating the entire thing every frame
+    #
+    # @param world (World)
+    #*/
+    def drawWorld(self, world):
 
+        # Get Grid
+        grid = world.get_grid()
+
+        # Loop through values
+        for y in range(0, BLOCKS_Y):
+            for x in range(0, BLOCKS_X):
+                self.drawBlock(x, y, grid[x][y] == '#')
