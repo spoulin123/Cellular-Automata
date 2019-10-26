@@ -1,5 +1,7 @@
 # Renderer options
 grid_line_color = (200, 200, 200)
+grid_line_width = 1
+block_width = 50
 
 
 # Renderer class
@@ -13,3 +15,4 @@ class Renderer:
     def __init__(self, pygame, window):
         self.pygame = pygame
         self.window = window
+
