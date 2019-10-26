@@ -4,11 +4,8 @@ from renderer import Renderer
 # Initialize pygame
 pygame.init()
 
-# Create pygame window
-window = pygame.display.set_mode((1000, 1000))
-
 # Create renderer
-renderer = Renderer(pygame, window)
+renderer = Renderer(pygame)
 
 # Render initial stuff
 renderer.draw_lines()
