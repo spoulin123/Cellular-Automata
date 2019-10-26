@@ -1,3 +1,5 @@
+import time
+
 from presets import ConwayPatterns
 from rules import Rule, Condition
 from world import World
@@ -13,6 +15,7 @@ populatedWorld = World("Test", 2000, 2000, 2, conway_rules, {0: " ", 1: "#"}, {}
 populatedWorld.spawn_points(ConwayPatterns.r_pentomino((10, 10)), 1)
 print(populatedWorld.active_points)
 
+frameDelay = .1
 i = 0
 populatedWorld.display(0, 50, 0, 50, i)
 
@@ -24,4 +27,4 @@ while True:
     # Clear screen
     print("\033[H\033[J")
     populatedWorld.display(0, 50, 0, 50, i)
-# time.sleep(.1)
+    time.sleep(frameDelay)
