@@ -1,8 +1,8 @@
 import time
 
-from presets import ConwayPatterns
-from rules import Rule, Condition
-from world import World
+from src.presets import ConwayPatterns
+from src.rules import Rule, Condition
+from src.world import World
 
 # Define rules
 rule1 = Rule(1, [Condition(1, "LESS", 2)], 0)
