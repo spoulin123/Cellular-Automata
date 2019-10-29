@@ -37,6 +37,8 @@ class Renderer:
         # Initialize pygame
         self.pygame.display.set_caption(WINDOW_TITLE)
         self.window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+        self.x_offset = 0
+        self.y_offset = 0
 
     # Draw grid lines
     def drawGrid(self):
@@ -107,4 +109,21 @@ class Renderer:
         # Loop through values
         for y in range(0, BLOCKS_Y):
             for x in range(0, BLOCKS_X):
-                self.drawBlock(x, y, COLOR_DEAD if grid[x][y] == 0 else COLOR_ALIVE)
+                self.drawBlock(x, y, self.getBlockColor(grid[x + self.x_offset][y + self.y_offset]))
+    # Get alive or dead Color
+    def getBlockColor(self, status):
+        return COLOR_DEAD if status == 0 else COLOR_ALIVE
+
+    # Update the field
+    def updateField(self, x_offset, y_offset):
+        self.x_offset += x_offset
+        self.y_offset += y_offset
+
+        # Clear screen
+        self.clearScreen()
+
+    # Draw everything dead
+    def clearScreen(self):
+        for y in range(0, BLOCKS_Y):
+            for x in range(0, BLOCKS_X):
+                self.drawBlock(x, y, self.getBlockColor(0))
