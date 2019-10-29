@@ -24,23 +24,29 @@ world = World("Test", 2000, 2000, 2, conway_rules, {0: " ", 1: "#"}, {})
 world.spawn_points(ConwayPatterns.r_pentomino((40, 40)), 1)
 print(world.active_points)
 
-# Frame operations
-running = True
-while running:
-    # Delay
-    pygame.time.delay(10)
 
+# Frame operations
+simulation_running = True
+program_running = True
+while program_running:
     # Loop through events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            program_running = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                simulation_running = not simulation_running
 
     # Update world
-    world.update_grid()
     renderer.drawWorld(world)
+    if simulation_running:
+        #Update grid
+        world.update_grid()
+        #Delay time
+        pygame.time.delay(10)
+        #Update display
+        pygame.display.update()
 
-    # Update display
-    pygame.display.update()
 
 # Quit
 pygame.quit()
