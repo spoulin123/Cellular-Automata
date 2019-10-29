@@ -110,6 +110,21 @@ class Renderer:
         for y in range(0, BLOCKS_Y):
             for x in range(0, BLOCKS_X):
                 self.drawBlock(x, y, self.getBlockColor(grid[x + self.x_offset][y + self.y_offset]))
+
+    # Define callback
+    def onBlockUpdate(self, x, y, status):
+
+        # Add the offsets
+        #x += self.x_offset
+        #y += self.y_offset
+
+        # Check if it is in range
+        if (x < 0 + self.x_offset or x > BLOCKS_X + self.x_offset): return
+        if (y < 0 + self.y_offset or y > BLOCKS_Y + self.y_offset): return
+
+        # Update block
+        self.drawBlock(x - self.x_offset, y - self.y_offset, self.getBlockColor(status))
+
     # Get alive or dead Color
     def getBlockColor(self, status):
         return COLOR_DEAD if status == 0 else COLOR_ALIVE

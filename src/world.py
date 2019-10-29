@@ -21,20 +21,9 @@
 
 
 class World:
-    # Empty world
-    def __init__(self, name, w, h, states, rules, graphics):
-        grid = World.make_blank_grid(w, h)
-        self.name = name
-        self.grid = grid
-        self.w = w
-        self.h = h
-        self.rules = rules
-        self.states = states
-        self.graphics = graphics
-        self.active_points = []
 
     # World with living cells at points
-    def __init__(self, name, w, h, states, rules, graphics, points):
+    def __init__(self, name, w, h, states, rules, graphics, points, callback):
         grid = World.make_blank_grid(w, h)
         self.grid = grid
         self.name = name
@@ -43,6 +32,9 @@ class World:
         self.rules = rules
         self.states = states
         self.graphics = graphics
+        self.callback = callback
+
+        # Put in the points
         self.active_points = []
         for value in points:
             for point in points[value]:
@@ -79,6 +71,7 @@ class World:
     def get_grid(self):
         return self.grid
 
+    # Deprecated
     def display(self, x1, x2, y1, y2, iter):
         out = ""
         # graphics = {0: " ", 1: "#"}
@@ -121,6 +114,9 @@ class World:
         self.spawn_points(self.active_points, 0)
         for point in point_values:
             self.grid[point[0]][point[1]] = point_values[point]
+
+            # Call the callback
+            self.callback(point[0], point[1], point_values[point])
 
     # rename to set_points later
     def spawn_points(self, points, value):

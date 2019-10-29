@@ -20,7 +20,7 @@ conway_rules = [Rule(1, [Condition(1, "LESS", 2)], 0),
                 Rule(0, [Condition(1, "EQUAL", 3)], 1)]
 
 # Create world
-world = World("Test", 2000, 2000, 2, conway_rules, {0: " ", 1: "#"}, {})
+world = World("Test", 2000, 2000, 2, conway_rules, {0: " ", 1: "#"}, {}, renderer.onBlockUpdate)
 world.spawn_points(ConwayPatterns.r_pentomino((40, 40)), 1)
 print(world.active_points)
 
@@ -36,12 +36,20 @@ while program_running:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 simulation_running = not simulation_running
+            if event.key == pygame.K_UP:
+                renderer.updateField(0, -1)
+            if event.key == pygame.K_DOWN:
+                renderer.updateField(0, 1)
+            if event.key == pygame.K_RIGHT:
+                renderer.updateField(1, 0)
+            if event.key == pygame.K_LEFT:
+                renderer.updateField(-1, 0)
 
     # Update world
-    renderer.drawWorld(world)
     if simulation_running:
         #Update grid
         world.update_grid()
+    #renderer.drawWorld(world)
         #Delay time
         pygame.time.delay(10)
         #Update display
